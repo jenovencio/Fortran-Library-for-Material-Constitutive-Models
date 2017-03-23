@@ -1,0 +1,1 @@
+for /f %%G in (%1) do ( copy %%G "C:\Users\Guilherme\Dropbox\Mestrado\FortranLib\HVPFD")
