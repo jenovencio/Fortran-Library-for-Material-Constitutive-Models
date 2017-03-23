@@ -1,0 +1,81 @@
+mpdele,all,matid
+
+tbdele,all,matid
+
+
+
+mp,dens,matid,1.4e-9
+
+t1=2
+t2=2
+t3=2
+t4=1
+
+ne=7
+nvol=1
+np=11
+nv=3
+
+
+! Material Properties
+!Elastic constant
+fator=50.0
+p1=1500 !-1.8845*fator
+p2=-105 !2.8084*fator 
+p3=1200! 0.7042*fator
+p4=2.7 !3.0559
+p5=2.5
+p6=1.25
+p7=1.0
+
+! Volumetric constant
+p8=1500
+
+!  Plastic Properties	  
+p9= 50.0  ! S0
+p10=30.0  ! H
+p11=30    ! mu
+p12=20     ! alfa
+p13=3     ! N
+p14=10    ! mu1
+p15=0     ! mu2
+p16=0     ! mu3
+p17=1     ! a1
+p18=1     ! a2
+p19=1     ! a3
+
+!Viscous Properties	  
+p20= 10.0      !YO
+p21= 0.1       ! Qp
+p22= 0.8       ! m
+
+total=8+22
+
+tb,user,matid,1,total   ! Define material 1 as a user
+TBDATA,1,t1,t2,t3,t4
+TBDATA,5,ne,nvol,np,nv
+TBDATA,9,p1,p2,p3,p4,p5,p6
+TBDATA,15,p7
+TBDATA,16,p8
+TBDATA,17,p9,p10,p11,p12
+TBDATA,21,p13
+TBDATA,22,p14,p15,p16
+TBDATA,25,p17,p18,p19
+TBDATA,28,p20,p21,p22
+
+
+!Inicialize interne variables
+c1=1.0
+c2=1.0
+c3=1.0
+c4=0
+c5=0
+c6=0
+c7=0
+c8=0
+c9=0
+c10=0
+tb,state,1,,10
+tbdata,1,c1,c2,c3,c4,c5,c6
+tbdata,7,c7,c8,c9,c10
+m1 = matid

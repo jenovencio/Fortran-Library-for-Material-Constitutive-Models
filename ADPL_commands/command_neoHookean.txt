@@ -1,0 +1,25 @@
+fator=50.0
+! Material Properties
+! Elastic Propesties
+p1=100
+p2=0
+p3=0
+p4=2
+p5=1
+p6=1
+p7=1.0
+p8=10.0
+p9=1.0
+p10=0.0
+p11=0.50
+p12=0.0
+p13=1.0
+p14=0.4
+p15=150.0
+p16=2.0
+!  Plastic Properties	  
+p17=	2000.0  
+p18= 30.0 
+p19= 0.1
+p20= 0.8
+p21= 2000.0

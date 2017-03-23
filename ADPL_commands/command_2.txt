@@ -1,0 +1,6 @@
+keyo,matid,2,0
+keyo,matid,6,1
+!pred, off
+!SOLCONTROL,,,,0.01
+!NEQIT,500
+!NROPT,UNSYM

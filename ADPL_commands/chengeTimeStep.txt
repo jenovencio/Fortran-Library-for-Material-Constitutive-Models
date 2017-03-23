@@ -1,0 +1,8 @@
+*if,i,lt,1,then
+i = 0
+*endif
+
+
+i = i + 1
+
+time,ARG1*i

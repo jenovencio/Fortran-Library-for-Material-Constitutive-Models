@@ -1,0 +1,67 @@
+!   Commands inserted into this file will be executed just after material definitions in /PREP7.
+!   The material number for this body is equal to the parameter "matid".
+
+!   Active UNIT system in Workbench when this object was created:  Metric (mm, kg, N, s, mV, mA) with temperature units of C
+!   NOTE:  Any data that requires units (such as mass) is assumed to be in the consistent solver unit system.
+!                See Solving Units in the help system for more information.
+
+
+mpdele,all,matid
+
+tbdele,all,matid
+
+
+
+mp,dens,matid,1.4e-9
+
+
+
+fator=50.0
+! Material Properties
+! Elastic Propesties
+p1=100
+p2=0 
+p3=0
+p4=2
+p5=1
+p6=1
+p7=1.0
+p8=10.0
+p9=1.0
+p10=0.0
+p11=0.50
+p12=0.0
+p13=1.0
+p14=0.4
+p15=150
+p16=2.0
+!  Plastic Properties	  
+p17=	20000.0  
+p18= 30.0 
+p19= 0.1
+p20= 0.8
+p21= 2000000.0
+
+tb,user,1,1,21   ! Define material 1 as a user
+TBDATA,1,p1,p2,p3,p4,p5,p6
+TBDATA,7,p7,p8,p9,p10,p11,p12
+TBDATA,13,p13,p14,p15,p16,p17,p18
+TBDATA,19,p19,p20,p21
+
+
+!Inicialize interne variables
+c1=1.0
+c2=1.0
+c3=1.0
+c4=0
+c5=0
+c6=0
+c7=0
+c8=0
+c9=0
+c10=0
+tb,state,1,,10
+tbdata,1,c1,c2,c3,c4,c5,c6
+tbdata,7,c7,c8,c9,c10
+m1 = matid
+

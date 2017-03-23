@@ -1,0 +1,82 @@
+! Delete propriedades definidas pela interface grática
+mpdele,all,matid
+tbdele,all,matid
+
+! Indice do tipo de potencial utilizado na rotina USETMAT
+t1=2
+t2=2
+t3=2
+t4=1
+
+! Número de constantes para cada material
+ne=7
+nvol=1
+np=11
+nv=3
+
+!-----------------------------------------------------------
+!                   Constantes Materiais
+!-----------------------------------------------------------
+!Constantes para o potencial Elástico
+p1=1.503E3    
+p2=2.430E0
+p3=0.000E0
+p4=1.383E0
+p5=4.985E1
+p6=1.000E0
+p7=1.0
+
+! Constante para o potencial volumétrico
+p8=3.152E3
+
+!Constantes para o potencial Plástico  
+p9= 8.667E1  ! S0
+p10=1.626E2  ! H
+p11=1.480E2   ! mu
+p12=4.285E1     ! alfa
+p13=3     ! N
+p14=5.414E1    ! mu1
+p15=0.000E0     ! mu2
+p16=0.000E0     ! mu3
+p17=1.744E1     ! a1
+p18=1.000E0     ! a2
+p19=1.000E0     ! a3
+
+! Constantes para o potencial dissipativo  
+p20= 0.0      !YO
+p21= 0.1       ! Qp
+p22= 0.8       ! m
+
+! número total de parâmetros para a rotina USERMAT
+total=8+22
+
+!Envia informações para a rotina USERMAT
+tb,user,matid,1,total   ! Define material 1 como o material do usuário
+TBDATA,1,t1,t2,t3,t4
+TBDATA,5,ne,nvol,np,nv
+TBDATA,9,p1,p2,p3,p4,p5,p6
+TBDATA,15,p7
+TBDATA,16,p8
+TBDATA,17,p9,p10,p11,p12
+TBDATA,21,p13
+TBDATA,22,p14,p15,p16
+TBDATA,25,p17,p18,p19
+TBDATA,28,p20,p21,p22
+
+!-----------------------------------------------------------
+!               Inicializa variáveis internas
+!-----------------------------------------------------------
+c1=1.0   ! Fp(1,1)
+c2=1.0   ! Fp(2,2)
+c3=1.0   ! Fp(3,3)
+c4=0     ! Fp(1,2)
+c5=0     ! Fp(2,3)
+c6=0     ! Fp(1,3)
+c7=0     ! Fp(2,1)
+c8=0     ! Fp(3,2)
+c9=0     ! Fp(3,1)
+c10=0    ! q 
+tb,state,matid,,10
+tbdata,1,c1,c2,c3,c4,c5,c6
+tbdata,7,c7,c8,c9,c10
+m1 = matid
